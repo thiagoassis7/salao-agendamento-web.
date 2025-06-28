@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <title>administrativa</title>
+</head>
+
+<body>
+    <header>
+        <h1>Espaço Thais Oliveira</h1>
+    </header>
+
+    <nav>
+        <button id="btnCliente" class="active" onclick="mostrarAba('cliente')">Cliente</button>
+        <button id="btnAdmin" onclick="mostrarAba('admin')">Administradora</button>
+    </nav>
+
+    <section id="cliente" class="active">
+        <!-- Coloque aqui o código HTML da parte do cliente (formulário de agendamento) -->
+        <p>Conteúdo do agendamento do cliente virá aqui...</p>
+    </section>
+
+    <section id="admin">
+        <h2>Administração</h2>
+
+        <h3>Adicionar Novo Serviço</h3>
+        <input type="text" id="novoServico" placeholder="Ex: Cílios Fio a Fio">
+        <input type="number" id="precoServico" placeholder="Valor (ex: 80)">
+        <button onclick="adicionarServico()">Adicionar Serviço</button>
+
+        <h3>Adicionar Novo Horário</h3>
+        <input type="time" id="novoHorario">
+        <button onclick="adicionarHorario()">Adicionar Horário</button>
+
+        <h3>Adicionar Data Indisponível</h3>
+        <input type="text" id="novaData" placeholder="Selecione a data">
+        <button onclick="adicionarDataIndisponivel()">Adicionar Data</button>
+    </section>
+
+    <script src="administrador.js"></script>
+</body>
+
+</html>

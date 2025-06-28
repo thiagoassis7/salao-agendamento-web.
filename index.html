@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
+    <title>espaço thais oliveira</title>
+</head>
+
+<body>
+    <header>
+
+
+        <img src="imagens/Logotipo cílios e sobrancelhas delicado gold .png" alt="foto de cilhos">
+
+
+    </header>
+    <main>
+        <ul>
+
+            <li> <label for="nome" class="name">Qual seu nome ?</label>
+                <input type="text" id="nome">
+
+            </li>
+
+
+            <li>
+                <button onclick="mostrarServicos()">Selecionar Serviços</button>
+            </li>
+
+
+
+            <div id="listaServicos"></div>
+
+            <div id="resumo" class="res"></div>
+
+
+            <li>
+                <label for="data" class="date">Escolha a data do seu atendimento !</label>
+                <input type="text" id="data" />
+            </li>
+
+            <li>
+                <label for="horario" class="time">Escolha o Horario do atendimento</label>
+                <select name="" id="horario">
+                    <option value="">selecione...</option>
+                </select>
+            </li>
+
+            <li><button onclick="confirmarAgendamento()">Confirmar agendamento</button></li>
+        </ul>
+
+
+    </main>
+    <footer></footer>
+   <script src="https://cdn.jsdelivr.net/npm/flatpickr">
+
+   </script>
+    <script src="script.js"> </script>
+   
+ 
+
+</body>
+
+</html>

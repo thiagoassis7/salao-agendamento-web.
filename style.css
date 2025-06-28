@@ -1,0 +1,173 @@
+
+*{
+
+    box-sizing: border-box;
+}
+
+header {
+    background-color:#C4A7DB;
+    text-align: center;
+    padding: 10px;
+}
+
+
+body {
+    background-color:#DB81D8;
+    
+}
+
+main li{
+     list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  
+   
+}
+main div{
+
+    color: black;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 10px;
+    padding: 2rem;
+    border: 5px solid #ccc;
+    border-radius: 20px;
+    background-color: #DB81D8;
+} 
+main option{
+    font-size: 2rem;
+    font-weight: 600;
+  
+}
+main select{
+    width: 50%;
+    max-width: 45%;
+    font-size: 1.5rem;
+    border: 2px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+   
+   
+    
+   
+
+
+}
+  
+
+ #resumo {
+    width: 95%;
+    box-sizing: border-box;
+    color: black;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0px auto;
+    padding: 0.8rem;  
+    border: 1px solid #ccc;
+    border-radius: 12px;  
+    text-align: center;
+    
+   
+}
+main label{ 
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 10px auto;
+    padding: 0.8rem;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    background-color: #f000e8;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+
+main input{
+    box-sizing: border-box;
+    max-width: 50%;
+    width: 50%;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 10px;
+    padding: 0px;
+    
+    border-radius: 20px;
+    text-align: center;
+}
+main button{
+    box-sizing: border-box;
+    max-width: 300px;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 10px auto;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+}
+img {background-color: white;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border: 1px solid #ccc;
+}
+input#data{
+ 
+
+}
+@media (max-width: 768px) {
+    img {
+      width: 100%;
+      height: auto;
+    }
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+     
+        
+        
+    }
+
+
+  }@media(max-width:527px){
+    #listaServicos, #resumo {
+        font-size: 1.8rem;
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+
+    main label{
+         font-size: 1.8rem;
+         padding: 0.6rem;
+         border-radius: 10px;
+         border: 2px solid #ccc;
+    }
+
+    main select{
+        font-size: 1.2rem;
+        padding: 0.8rem;
+     
+    }
+     main option{
+        font-size: 0.9rem;
+        padding: 0.3rem;
+     }
+    }
+     

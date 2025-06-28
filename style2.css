@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: #e4c2a8;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background-color: #ddd;
+  }
+
+  nav button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+  }
+
+  nav button.active {
+    background-color: #fff;
+    font-weight: bold;
+  }
+
+  section {
+    display: none;
+    padding: 2rem;
+  }
+
+  section.active {
+    display: block;
+  }
+
+  input, select, button {
+    display: block;
+    margin: 10px 0;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+  }
