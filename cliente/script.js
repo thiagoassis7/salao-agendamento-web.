@@ -107,10 +107,36 @@ const servicos = [
       return;
     }
   
-    const nomesServicos = selecionados.map(s => s.nome).join(", ");
+    const nomesServicos = selecionados.map((s) => s.nome).join(", ");
     const valorTotal = selecionados.reduce((soma, s) => soma + s.preco, 0);
+    const partes = data.split("-");
+    const dataISO = partes[2] + "-" + partes[1] + "-" + partes[0];
+    const agendamento = {
+      cliente: nome,
+      servico: nomesServicos,
+      data: dataISO,
+      hora: horario + ":00",
+      valor: valorTotal,
+    };
+     console.log(agendamento);
+     fetch("http://localhost:8080/agendamentos", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(agendamento),
+     })
+       .then((response) => response.json())
+       .then((data) => {
+         alert(
+           `Agendamento confirmado!\nCliente: ${nome}\nServiços: ${nomesServicos}\nData: ${data} às ${horario}\nTotal: R$ ${valorTotal.toFixed(2)}`,
+         );
+       })
+       .catch((error) => {
+         console.error("Erro ao salvar agendamento:", error);
+       });
   
-    alert(`Agendamento confirmado!\nCliente: ${nome}\nServiços: ${nomesServicos}\nData: ${data} às ${horario}\nTotal: R$ ${valorTotal.toFixed(2)}`);
+    
   
     // Atualiza horários disponíveis
     if (!horariosPorData[data]) {
@@ -130,13 +156,50 @@ const servicos = [
     flatpickr("#data", {
       dateFormat: "d-m-Y",
       disable: datasIndisponiveis,
-      locale: "pt",
-      onChange: function (selectedDates, dateStr, instance) {
+      /*locale: "pt-BR",*/
+      onChange:  async function (selectedDates, dateStr, instance) {
         // converte para o formato compatível com o array de horários
-        const dataISO = selectedDates[0].toISOString().split("T")[0]; // formato yyyy-mm-dd
-        atualizarHorariosDisponiveis(dataISO);
+        const dataISO = selectedDates[0].toISOString().split("T")[0];
+        const horariosLivres = await buscarAgendamentosPorData(dataISO);
+       
+
+        selectHorario.innerHTML = "";
+
+        horariosLivres.forEach((horario) => {
+          const option = document.createElement("option");
+          option.value = horario;
+          option.textContent = horario;
+          selectHorario.appendChild(option);
+        });
       }
+
+       
+
+
     });
+
+
+  async function buscarAgendamentosPorData(data) {
+
+  const resposta = await fetch(`http://localhost:8080/agendamentos/data?data=${data}`);
+
+  const agendamentos = await resposta.json();
+
+  const horariosOcupados = [];
+
+  agendamentos.forEach(function(agendamento) {
+    horariosOcupados.push(agendamento.hora.substring(0,5));
   });
 
+  const horariosLivres = horariosBase.filter((horario) => {
+    return !horariosOcupados.includes(horario);
+  });
+
+  return horariosLivres;
+
+}
+      
+
+ 
+  });
  
